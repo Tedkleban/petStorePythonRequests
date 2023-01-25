@@ -21,7 +21,7 @@ class Order(BuilderBaseClass):
         self.result['quantity'] = quantity
         return self
 
-    def set_date(self, ship_date="1998-11-12T15:35:39.098Z"):
+    def set_date(self, ship_date="1998-11-12T15:35:39.098+0000"):
         self.result['shipDate'] = ship_date
         return self
 

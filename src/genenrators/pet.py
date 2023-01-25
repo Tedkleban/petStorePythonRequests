@@ -34,17 +34,17 @@ class Pet(BuilderBaseClass):
         self.set_photo_urls()
         self.set_pet_id()
         self.result['category'] = {
-            'id': 1321234,
-            'name': "asdfasf"
+            'id': randint(1, 1000),
+            'name': generate_random_string(8)
         }
         self.result['tags'] = [
             {
-                'id': 1321234,
-                'name': "asdfasf"
+                'id': randint(1, 1000),
+                'name': generate_random_string(8)
             },
             {
-                'id': 12424124,
-                'name': "asdfsdfsasf"
+                'id': randint(1, 1000),
+                'name': generate_random_string(8)
             }
         ]
         self.set_status()

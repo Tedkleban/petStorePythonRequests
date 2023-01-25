@@ -5,6 +5,6 @@ from src.genenrators.order import Order
 
 
 @pytest.fixture
-def make_order_id():
+def make_order_data():
     response = Response(store_steps.create_order(Order().build()))
-    return response.response_json.get('id')
+    return response.response_json

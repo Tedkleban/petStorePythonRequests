@@ -5,17 +5,17 @@ from requests import get, put, delete, post
 
 def get_user(username: str):
     response = get(UserUrls.get_user_url_with_username(username),
-                   headers={'Accept': 'application/xml'})
+                   headers={'Accept': 'application/json'})
     return response
 
 
-def update_user(username: str, user: User):
+def update_user(username: str, user_data: User):
     response = put(UserUrls.get_user_url_with_username(username),
                    headers={
                        'Content-Type': 'application/json',
-                       'api_key': '<API Key>'
+                       'api_key': 'special-key'
                    },
-                   data=user)
+                   data=user_data)
     return response
 
 

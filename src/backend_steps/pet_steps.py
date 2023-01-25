@@ -41,15 +41,14 @@ def add_pet_to_the_store(pet: Pet):
     return response
 
 
-def upload_pet_image(pet_id: str):
+def upload_pet_image(pet_id: str, path_to_file: str):
     response = post(PetUrls.get_upload_image_with_pet_id_url(pet_id),
                     headers={
-                        'Content-Type': 'multipart/form-data',
                         'Accept': 'application/json'
                     },
                     data={'additionalMetadata': 'voluptate dolor'},
                     files=[
-                        ('file', ('file', open('/path/to/file', 'rb'), 'application/octet-stream'))
+                        ('file', ('test_image', open(path_to_file, 'rb'), 'image/png'))
                     ])
     return response
 
@@ -65,7 +64,7 @@ def delete_pet(pet_id: str):
 def find_pet_by_id(pet_id: str):
     response = get(PetUrls.get_pet_url_with_pet_id(pet_id),
                    headers={
-                       'Accept': 'application/xml',
+                       'Accept': 'application/json',
                        'api_key': 'special-key'
                    })
     return response

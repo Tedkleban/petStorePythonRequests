@@ -17,12 +17,16 @@ class Response:
         assert self.response_json != "{}", self
         return self
 
-    def validate_json_scheme(self, scheme: tuple):
-        for each in scheme:
-            assert each in self.response_json
+    def check_response_scheme(self, scheme: dict):
+        assert sorted(self.response_json) == sorted(scheme), self
 
-    def get_parsed_object(self):
-        return self.parsed_object
+    def check_response_values(self, values: dict):
+        sorted_json = sorted(self.response_json.items())
+        sorted_values = sorted(values.items())
+        assert sorted_json == sorted_values, self
+
+    def check_value_in_json(self, key: str, value):
+        assert self.response_json.get(key) == value, self
 
     def __str__(self):
 
